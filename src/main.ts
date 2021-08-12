@@ -1,3 +1,7 @@
+if (!process.env.IS_TS_NODE) {
+	require('module-alias/register');
+}
+
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
@@ -20,6 +24,6 @@ async function bootstrap() {
 
   app.enableCors();
 
-  await app.listen(process.env.PORT || 5000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
